@@ -1,0 +1,9 @@
+web:
+  build: .
+  command: slc run
+  links:
+   - db
+  ports:
+   - "3000:3000"
+db:
+  image: dockerfile/mongodb
