@@ -16,5 +16,4 @@ RUN npm install
 
 # Run App
 EXPOSE 3000
-CMD slc run
 
