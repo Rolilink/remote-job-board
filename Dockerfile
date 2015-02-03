@@ -9,12 +9,12 @@ RUN npm install -g strongloop
 RUN mkdir /data/app
 WORKDIR /data/app
 
-# Deploy proeject
-ADD ./ /data/app/
+# Deploy project
+ADD ./app/ /data/app/
 
 # Run App
 WORKDIR /data/app/
-RUN npm install
+RUN grunt deploy
 
 EXPOSE 3000
 CMD ['bash']
