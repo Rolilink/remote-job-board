@@ -2,8 +2,9 @@
 # Installs StrongLoop and Git
 FROM dockerfile/nodejs
 
-#Installing Loopback
-RUN npm install -g strongloop
+#Installing Loopback & Grunt
+RUN npm install -g strongloop && \
+		npm install -g grunt
 
 # Create App Directory and CD into it
 RUN mkdir /data/app
@@ -11,11 +12,9 @@ WORKDIR /data/app
 
 # Deploy project
 ADD ./app/ /data/app/
+RUN npm install
 
 # Run App
-WORKDIR /data/app/
-RUN grunt deploy
-
 EXPOSE 3000
-CMD ['bash']
+CMD slc run
 
