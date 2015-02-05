@@ -1,9 +1,12 @@
 web:
   build: .
   command: slc run
+  working_dir: /dev/app
   links:
    - db
   ports:
    - "3000:3000"
+  volumes:
+   - /Users/rolilink/Sites/remote-job-board/app:/dev/app
 db:
   image: dockerfile/mongodb
